@@ -1,0 +1,21 @@
+#!/bin/bash
+
+pmset -g batt |
+	awk '/InternalBattery/ {
+		c = "";
+		e = "";
+		if ($4 == "charging;") {
+			c = "+";
+		} else if ($4 == "discharging;") {
+			c = "-";
+		} 
+		if ($5 != "(no" && $5 != "0:00") {
+			e = $5;
+		}
+		if (e == "") {
+			print c $3;
+		} else {
+			print c $3 " (" e ")";
+		}
+	}' |
+	sed 's/;//'

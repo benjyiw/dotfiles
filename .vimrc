@@ -1,7 +1,22 @@
+" ~/.vimrc
+
 "" enable pathogen
 execute pathogen#infect()
 
+"" colors mmm
 syntax on
+colorscheme peachpuff
+
+"" line highlighting
+set cursorline
+highlight LineNr term=underline ctermfg=3 guifg=Yellow
+highlight Cursorline cterm=NONE ctermfg=NONE term=underline guibg=Grey40
+highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold guifg=Yellow
+
+"" line numbering
+set number
+"" bind <C-@> to toggle number, because it's annoying sometimes
+nmap <C-@> :set number!<CR>
 
 "" fix backspace issue
 set backspace=indent,eol,start

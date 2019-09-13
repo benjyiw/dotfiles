@@ -9,19 +9,26 @@ colorscheme peachpuff
 
 "" line highlighting
 set cursorline
-highlight LineNr term=underline ctermfg=3 guifg=Yellow
-highlight Cursorline cterm=NONE ctermfg=NONE term=underline guibg=Grey40
-highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold guifg=Yellow
+highlight LineNr term=underline ctermfg=1
+highlight Cursorline cterm=NONE ctermfg=NONE term=underline
+highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 
 "" line numbering
 set number
 "" bind <C-@> to toggle number, because it's annoying sometimes
-nmap <C-@> :set number!<CR>
+nmap <C-@> :set number! number?<CR>
 
 "" fix backspace issue
 set backspace=indent,eol,start
 
 set ruler
+
+"" case insensitive searching
+set ignorecase
+set smartcase
+
+"" scrolloff, prevent cursor from hitting the end of buffer
+set scrolloff=6
 
 " bashlike filepath tab completion in exec mode
 set wildmode=longest,list,full

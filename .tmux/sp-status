@@ -1,18 +1,23 @@
 #!/bin/bash
 # spotify is shpotify package from brew
-spotify status |
-	gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK](\x0F)?//g" |
-	awk '{
-		if($4 == "paused.") {
-			printf "|| "
-		} else if($4 == "playing.") {
-			printf "> "
-		} else {
-			s = ""; 
-			for (i = 2; i<=NF; i++) 
-				s = s $i " "; 
-				a[$1] = s;
-		}
-	} END {
-		print a["Track:"] "// " a["Artist:"]
-	}'
+
+if pgrep Spotify >/dev/null; then
+	spotify status |
+		gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK](\x0F)?//g" |
+		awk '{
+			if($4 == "paused.") {
+				printf "|| "
+			} else if($4 == "playing.") {
+				printf "> "
+			} else {
+				s = ""; 
+				for (i = 2; i<=NF; i++) 
+					s = s $i " "; 
+					a[$1] = s;
+			}
+		} END {
+			print a["Track:"] "// " a["Artist:"]
+		}'
+else
+	echo '//'
+fi

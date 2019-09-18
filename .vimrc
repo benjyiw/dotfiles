@@ -15,12 +15,17 @@ highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 
 "" line numbering
 set number
+
 "" bind <C-@> to toggle number, because it's annoying sometimes
 nmap <C-@> :set number! number?<CR>
+
+"" whitespace characters for :set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 "" fix backspace issue
 set backspace=indent,eol,start
 
+"" ruler at the bottom right
 set ruler
 
 "" case insensitive searching
@@ -33,6 +38,9 @@ set scrolloff=6
 " bashlike filepath tab completion in exec mode
 set wildmode=longest,list,full
 set wildmenu
+
+
+"""" Plugin Configurations
 
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>

@@ -17,7 +17,7 @@ if pgrep Spotify >/dev/null; then
 			}
 		} END {
 			print a["Track:"] "// " a["Artist:"]
-		}'
+		}' | sed 's/ *$//'
 else
 	echo '//'
 fi

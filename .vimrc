@@ -35,7 +35,7 @@ set smartcase
 "" scrolloff, prevent cursor from hitting the end of buffer
 set scrolloff=6
 
-" bashlike filepath tab completion in exec mode
+"" bashlike filepath tab completion in exec mode
 set wildmode=longest,list,full
 set wildmenu
 
@@ -56,4 +56,15 @@ nmap ga <Plug>(EasyAlign)
 
 " Align Github-flabored markdown tables (not sure if this works)
 "au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+
+"" ale syntax checking/linting
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" python
+let g:ale_python_pylint_options = '--errors-only'
 

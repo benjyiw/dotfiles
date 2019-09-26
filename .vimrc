@@ -67,4 +67,18 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " python
 let g:ale_python_pylint_options = '--errors-only'
+let g:ale_linter_aliases = {'yaml': ['cloudformation', 'yaml']}
+let g:ale_cloudformation_cfnlint_options = '-a /Users/bweseman/cfn-custom-rules/'
 
+"" lightline configuration
+"" might want export TERM=xterm-256color
+set laststatus=2
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ }
+" transparent middle bar
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle

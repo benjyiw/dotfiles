@@ -7,6 +7,9 @@ execute pathogen#infect()
 syntax on
 colorscheme peachpuff
 
+"" bracket highlighting
+highlight MatchParen cterm=none ctermbg=darkgray ctermfg=white
+
 "" line highlighting
 set cursorline
 highlight LineNr term=underline ctermfg=1

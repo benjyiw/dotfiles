@@ -42,6 +42,9 @@ set scrolloff=6
 set wildmode=longest,list,full
 set wildmenu
 
+"" always show gutter for ale and git gutter
+set signcolumn=yes
+
 
 """" Plugin Configurations
 

@@ -9,7 +9,7 @@ pmset -g batt |
 		} else if ($4 == "discharging;") {
 			c = "-";
 		} 
-		if ($5 != "(no" && $5 != "0:00" && $5 != "charge;") {
+		if ($5 != "(no" && $6 != "(no" && $5 != "0:00" && $5 != "charge;") {
 			e = $5;
 		} else if ($5 == "charge;") {
 			e = $6;

@@ -73,7 +73,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " python
 let g:ale_python_pylint_options = '--errors-only'
-let g:ale_linter_aliases = {'yaml': ['cloudformation', 'yaml']}
+" cloudformation
 let g:ale_cloudformation_cfnlint_options = '-a /Users/bweseman/cfn-custom-rules/'
 
 "" lightline configuration

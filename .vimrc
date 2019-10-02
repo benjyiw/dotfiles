@@ -45,6 +45,9 @@ set wildmenu
 "" always show gutter for ale and git gutter
 set signcolumn=yes
 
+"" tab preferences by filetype
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
 
 """" Plugin Configurations
 
@@ -90,5 +93,18 @@ let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
 
 "" vim-commentary
-" python
 autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType vim setlocal commentstring=\"\ %s
+
+
+""" custom functions
+
+function! InsertTextFile(filepath)
+    exe 'r' . a:filepath
+    normal! ggd)
+endfunction
+
+" start a cloudformation template
+command! Begincfn call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
+command! Begincfnyaml call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
+command! Begincfnjson call InsertTextFile("~/.vim/txt/cloudformation-begin.json")

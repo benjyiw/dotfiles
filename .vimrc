@@ -99,7 +99,7 @@ autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
 
 
-""" custom functions
+"""" custom functions
 
 function! InsertTextFile(filepath)
     exe 'r' . a:filepath
@@ -107,6 +107,8 @@ function! InsertTextFile(filepath)
 endfunction
 
 " start a cloudformation template
-command! Begincfn call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
-command! Begincfnyaml call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
-command! Begincfnjson call InsertTextFile("~/.vim/txt/cloudformation-begin.json")
+if isdirectory(expand('~/.vim/txt'))
+    command! Begincfn call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
+    command! Begincfnyaml call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
+    command! Begincfnjson call InsertTextFile("~/.vim/txt/cloudformation-begin.json")
+endif

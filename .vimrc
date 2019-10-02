@@ -77,7 +77,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " python
 let g:ale_python_pylint_options = '--errors-only'
 " cloudformation
-let g:ale_cloudformation_cfnlint_options = '-a /Users/bweseman/cfn-custom-rules/'
+if isdirectory(expand('~/cfn-custom-rules'))
+    let g:ale_cloudformation_cfnlint_options = '-a ~/cfn-custom-rules/'
+endif
 
 "" lightline configuration
 "" might want export TERM=xterm-256color

@@ -1,0 +1,12 @@
+# Sourced by ~/.gitconfig, using:
+# [include]
+# 	path = .git_aliases
+
+[alias]
+	ls = log --pretty=\\\"%Cred%h%Creset%x20%cr%Cblue%d%Creset%x20%C(cyan)%cN%Creset%x20%s\\\" --decorate=short --color --graph
+	ll = log --pretty=format:\"%Cred%h%C(yellow)%d\\\\ %Creset%s%C(cyan)\\\\ [%cn]\" --decorate --numstat
+	st = status -s
+	open = "!f() { REPO_URL=$(git config remote.origin.url); open ${REPO_URL%%.git}; }; f"
+	browse = "!git open"
+
+# vim: ft=gitconfig

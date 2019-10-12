@@ -34,7 +34,7 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is, 'Primary' - only on the primary monitor -->
-    <primaryMonitor>1</primaryMonitor>
+    <primaryMonitor>Active</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
@@ -327,8 +327,6 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-
-
     <!-- start custom keybindings -->
     <keybind key="A-Return">
       <action name="Execute">
@@ -374,9 +372,15 @@
     <keybind key="W-m">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>openbox --reconfigure</command>
+      </action>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="ToggleMaximize"/>
+    </keybind>
     <!-- end custom keybindings -->
-
-
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -715,7 +719,7 @@
   <menu>
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
-    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+    <!-- default menu file (or c*stom one in $HOME/.config/openbox/) -->
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the

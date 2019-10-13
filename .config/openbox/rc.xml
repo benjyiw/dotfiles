@@ -380,6 +380,14 @@
     <keybind key="W-Return">
       <action name="ToggleMaximize"/>
     </keybind>
+    <keybind key="W-n">
+      <action name="AddDesktop">
+        <where>current</where>
+      </action>
+    </keybind>
+    <keybind key="A-d">
+      <action name="ToggleDecorations"/>
+    </keybind>
     <!-- end custom keybindings -->
   </keyboard>
   <mouse>

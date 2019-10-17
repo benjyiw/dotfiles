@@ -13,4 +13,6 @@ endfunction
 augroup filetypedetect
   au BufRead,BufNewFile *.yaml call DetectYamlCloudformation()
   au BufRead,BufNewFile *.json call DetectJsonCloudformation()
+  au FileType yaml call DetectYamlCloudformation()
+  au FileType json call DetectYamlCloudformation()
 augroup END

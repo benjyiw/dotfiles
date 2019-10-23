@@ -338,6 +338,11 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
+    <keybind key="W-space">
+      <action name="Execute">
+        <command>rofi -show run</command>
+      </action>
+    </keybind>
     <keybind key="W-Tab">
       <action name="Execute">
         <command>rofi -show window</command>

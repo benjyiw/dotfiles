@@ -4,11 +4,15 @@
 xset -b
 
 # start pulse audio after a bit
-(sleep 5s && pulseaudio --start) & 
+# (sleep 5s && pulseaudio -v 2&>1 > ~/.config/openbox/pulseaudio.log) & 
 
 # configure background with feh
 [[ -x ~/.fehbg ]] && ~/.fehbg
 
 compton -b &
 
-[[ -r ~/.config/conky/conky.conf ]] && conky -d -c ~/.config/conky/conky.conf &
+# polybar example -q &
+~/.config/polybar/launch.sh
+
+# [[ -r ~/.config/conky/conky.conf ]] && conky -d -c ~/.config/conky/conky.conf &
+

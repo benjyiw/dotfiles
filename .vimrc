@@ -63,7 +63,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Align Github-flabored markdown tables (not sure if this works)
+" Align Github-flavored markdown tables (not sure if this works)
 "au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 
@@ -80,6 +80,12 @@ let g:ale_python_pylint_options = '--errors-only'
 if isdirectory(expand('~/cfn-custom-rules'))
     let g:ale_cloudformation_cfnlint_options = '-a ~/cfn-custom-rules/'
 endif
+let g:ale_fixers = { 
+            \ 'markdown': ['prettier'],
+            \ 'json': ['prettier']
+            \ }
+let g:ale_javascript_prettier_options = '--prose-wrap=always'
+let g:ale_fix_on_save = 0
 
 "" lightline configuration
 "" might want export TERM=xterm-256color
@@ -97,18 +103,26 @@ let s:palette.tabline.middle = s:palette.normal.middle
 "" vim-commentary
 autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
+autocmd FileType yaml setlocal commentstring=#\ %s
 
 
 """" custom functions
 
 function! InsertTextFile(filepath)
-    exe 'r' . a:filepath
-    normal! ggd)
+    exe '0r' . a:filepath
 endfunction
 
 " start a cloudformation template
+function! Begincfnyaml(filepath)
+    call InsertTextFile(a:filepath)
+    set ft=yaml.cloudformation
+endfunction
+function! Begincfnjson(filepath)
+    call InsertTextFile(a:filepath)
+    set ft=json.cloudformation
+endfunction
 if isdirectory(expand('~/.vim/txt'))
-    command! Begincfn call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
-    command! Begincfnyaml call InsertTextFile("~/.vim/txt/cloudformation-begin.yaml")
-    command! Begincfnjson call InsertTextFile("~/.vim/txt/cloudformation-begin.json")
+    command! Begincfn call Begincfnyaml("~/.vim/txt/cloudformation-begin.yaml")
+    command! Begincfnyaml call Begincfnyaml("~/.vim/txt/cloudformation-begin.yaml")
+    command! Begincfnjson call Begincfnjson("~/.vim/txt/cloudformation-begin.json")
 endif

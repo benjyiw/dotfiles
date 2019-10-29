@@ -390,6 +390,16 @@
         <where>current</where>
       </action>
     </keybind>
+    <keybind key="W-S-n">
+      <action name="AddDesktop">
+        <where>last</where>
+      </action>
+    </keybind>
+    <keybind key="A-n">
+      <action name="RemoveDesktop">
+        <where>current</where>
+      </action>
+    </keybind>
     <keybind key="A-d">
       <action name="ToggleDecorations"/>
     </keybind>

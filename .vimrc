@@ -1,7 +1,34 @@
 " ~/.vimrc
 
-"" enable pathogen
-execute pathogen#infect()
+"" enable vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Linter
+Plug 'dense-analysis/ale'
+
+" Easy commenter 'gc'
+Plug 'tpope/vim-commentary'
+
+" Distraction free vim
+Plug 'junegunn/goyo.vim'
+
+" Status line
+Plug 'itchyny/lightline.vim'
+
+" Nerdtree 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-sleuth'
+Plug 'junegunn/vim-easy-align'
+Plug 'suan/vim-instant-markdown'
+Plug 'christoomey/vim-tmux-navigator'
+
+call plug#end()
 
 "" colors mmm
 syntax on
@@ -91,9 +118,7 @@ let g:ale_fix_on_save = 0
 "" might want export TERM=xterm-256color
 set laststatus=2
 set noshowmode
-let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \ }
+let g:lightline = { 'colorscheme': 'seoul256', }
 " transparent middle bar
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]

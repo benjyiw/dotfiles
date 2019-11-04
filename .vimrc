@@ -23,6 +23,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/vim-easy-align'
 Plug 'suan/vim-instant-markdown'
@@ -125,10 +126,14 @@ let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
 
+"" vim-terraform
+let g:terraform_align=1
+
 "" vim-commentary
 autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType yaml setlocal commentstring=#\ %s
+autocmd FileType tf setlocal commentstring=#\ %s
 
 
 """" custom functions

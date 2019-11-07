@@ -23,11 +23,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Easy navigation between tmux panes and vim windows
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/vim-easy-align'
 Plug 'suan/vim-instant-markdown'
-Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 

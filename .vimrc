@@ -106,6 +106,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " python
 let g:ale_python_pylint_options = '--errors-only'
+" ignore E501 line too long
+let g:ale_python_flake8_options = '--ignore=E501'
 " cloudformation
 if isdirectory(expand('~/cfn-custom-rules'))
     let g:ale_cloudformation_cfnlint_options = '-a ~/cfn-custom-rules/'

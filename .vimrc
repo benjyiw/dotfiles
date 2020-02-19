@@ -46,6 +46,9 @@ highlight LineNr term=underline ctermfg=1
 highlight Cursorline cterm=NONE ctermfg=NONE term=underline
 highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 
+"" highlighted text should be visible
+highlight Visual ctermfg=7 ctermbg=black
+
 "" line numbering
 set number
 

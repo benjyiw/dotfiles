@@ -12,8 +12,10 @@
 				echo opening url: ${REPO_URL%%.git}; \
 				if type open &>/dev/null; then \
 					open ${REPO_URL%%.git}; \
-				else \
+		                elif type xdg-open &>/dev/null; then \
 					xdg-open ${REPO_URL%%.git}; \
+				else \
+					echo error: unable to find open tool; \
 				fi; \
 			fi; \
 		}; f"

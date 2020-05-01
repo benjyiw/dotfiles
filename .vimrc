@@ -26,12 +26,17 @@ Plug 'airblade/vim-gitgutter'
 " Easy navigation between tmux panes and vim windows
 Plug 'christoomey/vim-tmux-navigator'
 
+" Markdown -- :help fold-commands
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/vim-easy-align'
-Plug 'suan/vim-instant-markdown'
 
 call plug#end()
+
 
 "" colors mmm
 syntax on
@@ -87,7 +92,7 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>
 "" Hide help button in NERDTree
-let NERDTreeMinimalUI=1
+"let NERDTreeMinimalUI=1
 
 
 "" Configure vim-easy-align
@@ -141,6 +146,19 @@ autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType yaml setlocal commentstring=#\ %s
 autocmd FileType tf setlocal commentstring=#\ %s
+
+"" cucumbertables
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
 
 
 """" custom functions

@@ -20,5 +20,6 @@
 			fi; \
 		}; f"
 	browse = "!git open"
+	cleanup-branches = "!git branch --merged | grep -v -E '^\\*|master' | xargs -n1 git branch -d"
 
 # vim: ft=gitconfig

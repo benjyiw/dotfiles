@@ -16,3 +16,5 @@ compton -b &
 
 # [[ -r ~/.config/conky/conky.conf ]] && conky -d -c ~/.config/conky/conky.conf &
 
+# configure custom keys, caps lock -> left control
+[[ -r ~/.Xmodmap ]] && xmodmap ~/.Xmodmap

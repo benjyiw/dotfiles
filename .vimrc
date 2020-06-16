@@ -30,6 +30,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-sleuth'
@@ -53,6 +54,9 @@ highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 
 "" highlighted text should be visible
 highlight Visual ctermfg=7 ctermbg=black
+
+"" remove color for gutter
+highlight clear SignColumn
 
 "" line numbering
 set number
@@ -82,6 +86,9 @@ set wildmenu
 
 "" always show gutter for ale and git gutter
 set signcolumn=yes
+
+"" include hyphens with C-p
+set iskeyword+=-
 
 "" tab preferences by filetype
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
@@ -120,6 +127,7 @@ let g:ale_python_flake8_options = '--ignore=E501'
 if isdirectory(expand('~/cfn-custom-rules'))
     let g:ale_cloudformation_cfnlint_options = '-a ~/cfn-custom-rules/'
 endif
+" fixers
 let g:ale_fixers = { 
             \ 'markdown': ['prettier'],
             \ 'json': ['prettier']

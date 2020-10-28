@@ -55,6 +55,9 @@ highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 "" highlighted text should be visible
 highlight Visual ctermfg=7 ctermbg=black
 
+"" less harsh colors for folds
+highlight Folded ctermbg=8 ctermfg=7
+
 "" remove color for gutter
 highlight clear SignColumn
 
@@ -90,6 +93,12 @@ set signcolumn=yes
 "" include hyphens with C-p
 set iskeyword+=-
 
+"" horizontal split always goes to the bottom
+set splitbelow
+
+"" virtical split always goes to the right
+set splitright
+
 "" tab preferences by filetype
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
@@ -99,7 +108,15 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>
 "" Hide help button in NERDTree
-"let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI=1
+" Start NerdTree when no files are opened
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+autocmd VimEnter * call StartUp()
+
 
 
 "" Configure vim-easy-align
@@ -129,9 +146,10 @@ if isdirectory(expand('~/cfn-custom-rules'))
 endif
 " fixers
 let g:ale_fixers = { 
-            \ 'markdown': ['prettier'],
-            \ 'json': ['prettier']
-            \ }
+    \ 'markdown': ['prettier'],
+    \ 'json': ['prettier'],
+    \ 'terraform': ['terraform']
+    \ }
 let g:ale_javascript_prettier_options = '--prose-wrap=always'
 let g:ale_fix_on_save = 0
 
@@ -189,3 +207,7 @@ if isdirectory(expand('~/.vim/txt'))
     command! Begincfnyaml call Begincfnyaml("~/.vim/txt/cloudformation-begin.yaml")
     command! Begincfnjson call Begincfnjson("~/.vim/txt/cloudformation-begin.json")
 endif
+
+" cleanup registrers when i have too much shit in them
+command! CleanReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+

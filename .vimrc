@@ -55,6 +55,9 @@ highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
 "" highlighted text should be visible
 highlight Visual ctermfg=7 ctermbg=black
 
+"" warnings from linters should be readable
+highlight SpellBad ctermfg=black
+
 "" less harsh colors for folds
 highlight Folded ctermbg=8 ctermfg=7
 

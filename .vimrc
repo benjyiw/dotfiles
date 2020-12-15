@@ -26,6 +26,9 @@ Plug 'airblade/vim-gitgutter'
 " Easy navigation between tmux panes and vim windows
 Plug 'christoomey/vim-tmux-navigator'
 
+" vim wiki, for all of the notes
+Plug 'vimwiki/vimwiki'
+
 " Markdown -- :help fold-commands
 Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
@@ -38,6 +41,10 @@ Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
+
+"" required for vimwiki
+set nocompatible
+filetype plugin on
 
 "" colors mmm
 syntax on
@@ -108,6 +115,12 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 """" Plugin Configurations
 
+"" Vimwiki configuration
+" use markdown instead of .wiki syntax
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+  \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>
 "" Hide help button in NERDTree
@@ -118,7 +131,8 @@ function! StartUp()
         NERDTree
     end
 endfunction
-autocmd VimEnter * call StartUp()
+"disabled because it turns out i hate it
+"autocmd VimEnter * call StartUp()
 
 
 

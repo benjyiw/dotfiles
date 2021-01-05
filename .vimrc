@@ -120,6 +120,10 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 let g:vimwiki_list = [{'path': '~/vimwiki/',
   \ 'syntax': 'markdown', 'ext': '.md'}]
 
+"" iterm doesn't send shift-enter, so add extra bindings as workaround
+map <Leader><cr> <Plug>VimwikiTabnewLink
+map <Leader>ws <Plug>VimwikiSplitLink
+
 
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>

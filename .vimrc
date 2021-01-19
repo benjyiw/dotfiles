@@ -74,9 +74,6 @@ highlight clear SignColumn
 "" line numbering
 set number
 
-"" bind <C-@> to toggle number, because it's annoying sometimes
-nmap <C-@> :set number! number?<CR>
-
 "" whitespace characters for :set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
@@ -113,14 +110,22 @@ set splitright
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 
+"""" Generic Bindings
+
+"" bind <C-@> to toggle number, because it's annoying sometimes
+nmap <C-@> :set number! number?<CR>
+
+"" rebind + to be used for timestamping things quickly
+nmap + o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
+
+
 """" Plugin Configurations
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax
 let g:vimwiki_list = [{'path': '~/vimwiki/',
   \ 'syntax': 'markdown', 'ext': '.md'}]
-
-"" iterm doesn't send shift-enter, so add extra bindings as workaround
+" iterm doesn't send shift-enter, so add extra bindings as workaround
 map <Leader><cr> <Plug>VimwikiTabnewLink
 map <Leader>ws <Plug>VimwikiSplitLink
 

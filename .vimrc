@@ -117,6 +117,8 @@ nmap <C-@> :set number! number?<CR>
 
 "" rebind + to be used for timestamping things quickly
 nmap + o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
+"" \+ bonus mapping because vimwiki overwrites usage of just +
+nmap <Leader>+ o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
 
 
 """" Plugin Configurations

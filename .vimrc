@@ -215,7 +215,10 @@ function! s:align()
 endfunction
 
 
-"""" custom functions
+"""" custom commands and functions
+
+" reload vimrc easily
+command! Reloadvimrc source ~/.vimrc
 
 function! InsertTextFile(filepath)
     exe '0r' . a:filepath

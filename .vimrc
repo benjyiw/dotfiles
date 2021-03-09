@@ -242,3 +242,5 @@ endif
 " cleanup registrers when i have too much shit in them
 command! CleanReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
+" run a file through jq to make the json pretty
+command! FormatJson %!jq .

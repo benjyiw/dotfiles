@@ -108,6 +108,7 @@ set splitright
 
 "" tab preferences by filetype
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+autocmd Filetype go setlocal ts=4
 
 
 """" Generic Bindings
@@ -176,7 +177,8 @@ endif
 let g:ale_fixers = { 
     \ 'markdown': ['prettier'],
     \ 'json': ['prettier'],
-    \ 'terraform': ['terraform']
+    \ 'terraform': ['terraform'],
+    \ 'python': ['autopep8', 'autoimport']
     \ }
 let g:ale_javascript_prettier_options = '--prose-wrap=always'
 let g:ale_fix_on_save = 0

@@ -121,6 +121,9 @@ nmap + o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
 "" \+ bonus mapping because vimwiki overwrites usage of just +
 nmap <Leader>+ o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
 
+"" remap visual Y to copy to the system clipboard register 
+"" because it's the same as y and it's a pain to access the register everytime
+vmap Y "+y
 
 """" Plugin Configurations
 
@@ -178,7 +181,8 @@ let g:ale_fixers = {
     \ 'markdown': ['prettier'],
     \ 'json': ['prettier'],
     \ 'terraform': ['terraform'],
-    \ 'python': ['autopep8', 'autoimport']
+    \ 'python': ['autopep8', 'autoimport'],
+    \ 'go': ['trim_whitespace', 'gofmt', 'goimports']
     \ }
 let g:ale_javascript_prettier_options = '--prose-wrap=always'
 let g:ale_fix_on_save = 0

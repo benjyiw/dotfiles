@@ -15,11 +15,11 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}'
 
   ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-  ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+  ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✱"
   ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
   ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
   ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
-  ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+  ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ◼"
 else
   MODE_INDICATOR="❮❮❮"
   local return_status="%(?::⏎)"

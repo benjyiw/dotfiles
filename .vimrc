@@ -134,6 +134,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " iterm doesn't send shift-enter, so add extra bindings as workaround
 map <Leader><cr> <Plug>VimwikiTabnewLink
 map <Leader>ws <Plug>VimwikiSplitLink
+" automatically enter the date at the top of diary files
+autocmd BufNewFile ~/vimwiki/diary/[0-9]*.md :silent 0r !echo "\# `date +'\%Y-\%m-\%d'`"
 
 
 "" Map Nerdtree to CTRL+N

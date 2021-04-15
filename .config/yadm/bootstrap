@@ -2,6 +2,9 @@
 
 cd "${HOME}" || exit 1
 
+echo "Init submodules"
+yadm submodule update --recursive --init
+
 echo "Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

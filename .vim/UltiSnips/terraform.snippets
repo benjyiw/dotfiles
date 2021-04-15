@@ -1,0 +1,13 @@
+snippet v "create a simple variable" b
+variable "$1" {
+  type = $2
+}
+endsnippet
+
+snippet vf "create a variable with all of the things" b
+variable "$1" {
+  type = $2
+  description = "$3"
+  default = $4
+}
+endsnippet

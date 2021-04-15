@@ -25,6 +25,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 
 plugins=(
   shrink-path
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

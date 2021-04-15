@@ -39,6 +39,10 @@ Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/vim-easy-align'
 
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 
@@ -125,6 +129,7 @@ nmap <Leader>+ o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
 "" because it's the same as y and it's a pain to access the register everytime
 vmap Y "+y
 
+
 """" Plugin Configurations
 
 "" Vimwiki configuration
@@ -136,7 +141,6 @@ map <Leader><cr> <Plug>VimwikiTabnewLink
 map <Leader>ws <Plug>VimwikiSplitLink
 " automatically enter the date at the top of diary files
 autocmd BufNewFile ~/vimwiki/diary/[0-9]*.md :silent 0r !echo "\# `date +'\%Y-\%m-\%d'`"
-
 
 "" Map Nerdtree to CTRL+N
 map <C-n> :NERDTreeToggle<CR>
@@ -151,8 +155,6 @@ endfunction
 "disabled because it turns out i hate it
 "autocmd VimEnter * call StartUp()
 
-
-
 "" Configure vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -161,7 +163,6 @@ nmap ga <Plug>(EasyAlign)
 
 " Align Github-flavored markdown tables (not sure if this works)
 "au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
 
 "" ale syntax checking/linting
 "nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -209,6 +210,15 @@ autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType yaml setlocal commentstring=#\ %s
 autocmd FileType tf setlocal commentstring=#\ %s
 
+"" snippets ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-a>"
+let g:UltiSnipsEditSplit="horizontal"
+
+
+"""" custom commands and functions
+
 "" cucumbertables
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
@@ -221,9 +231,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
-
-"""" custom commands and functions
 
 " reload vimrc easily
 command! Reloadvimrc source ~/.vimrc

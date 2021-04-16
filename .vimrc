@@ -9,6 +9,9 @@ Plug 'dense-analysis/ale'
 " Easy commenter 'gc'
 Plug 'tpope/vim-commentary'
 
+" Surround normal:'ys' 'cs' 'ds', visual:'S'
+Plug 'tpope/vim-surround'
+
 " Distraction free vim
 Plug 'junegunn/goyo.vim'
 

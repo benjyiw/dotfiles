@@ -11,3 +11,9 @@ variable "$1" {
   default = $4
 }
 endsnippet
+
+snippet r "create a simple resource" b
+resource "$1" "$2" {
+  $3
+}
+endsnippet

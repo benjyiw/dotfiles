@@ -30,5 +30,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# use the correct editor.
+export EDITOR=vim
+export VISUAL=vim
+
 # old ls colors from way back when
 LSCOLORS=exfxcxdxbxGxDxabagacad

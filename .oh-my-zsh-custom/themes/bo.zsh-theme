@@ -1,11 +1,17 @@
 # customized sorin theme
 
+if [[ -n $SSH_CONNECTION ]]; then
+  local user_host="%{$fg[yellow]%}$USER%{$reset_color%}@%{$fg[red]%}%m%{$reset_color%}"
+else
+  local user_host=""
+fi
+
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
   local return_status="%{$fg[red]%}%(?..✘ %?)%{$reset_color%}"
 
   #PROMPT='%{$fg[cyan]%}%c$(git_prompt_info) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
-  PROMPT=' %{$fg[blue]%}$(shrink_path -f)$(git_prompt_info) %{$fg[red]%}❯%{$fg[yellow]%}❯%(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+  PROMPT='${user_host} %{$fg[blue]%}$(shrink_path -f)$(git_prompt_info) %{$fg[red]%}❯%{$fg[yellow]%}❯%(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
 
   ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[red]%}"
   ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

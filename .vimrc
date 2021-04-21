@@ -139,6 +139,8 @@ vmap Y "+y
 " use markdown instead of .wiki syntax
 let g:vimwiki_list = [{'path': '~/vimwiki/',
   \ 'syntax': 'markdown', 'ext': '.md'}]
+" disable table mappings to allow for tab to work with ultisnips
+let g:vimwiki_table_mappings = 0
 " iterm doesn't send shift-enter, so add extra bindings as workaround
 map <Leader><cr> <Plug>VimwikiTabnewLink
 map <Leader>ws <Plug>VimwikiSplitLink

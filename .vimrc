@@ -137,8 +137,12 @@ vmap Y "+y
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-  \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{
+  \ 'path': '~/vimwiki/',
+  \ 'syntax': 'markdown',
+  \ 'ext': '.md',
+  \ 'auto_diary_index': 1
+  \ }]
 " disable table mappings to allow for tab to work with ultisnips
 let g:vimwiki_table_mappings = 0
 " iterm doesn't send shift-enter, so add extra bindings as workaround

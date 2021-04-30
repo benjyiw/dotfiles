@@ -1,5 +1,8 @@
 " ~/.vimrc
 
+"""" plugins
+""" {{{
+
 "" enable vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -48,6 +51,9 @@ Plug 'honza/vim-snippets'
 
 call plug#end()
 
+""" }}}
+"""" colors and highlighting
+""" {{{
 
 "" required for vimwiki
 set nocompatible
@@ -77,6 +83,11 @@ highlight Folded ctermbg=8 ctermfg=7
 
 "" remove color for gutter
 highlight clear SignColumn
+
+
+""" }}}
+"""" generic configurations
+""" {{{
 
 "" line numbering
 set number
@@ -118,7 +129,9 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype go setlocal ts=4
 
 
-"""" Generic Bindings
+""" }}}
+"""" generic bindings
+""" {{{
 
 "" bind <C-@> to toggle number, because it's annoying sometimes
 nmap <C-@> :set number! number?<CR>
@@ -133,7 +146,9 @@ nmap <Leader>+ o<C-R>=strftime("%Y-%m-%d %H:%M:%S %Z: ")<CR>
 vmap Y "+y
 
 
-"""" Plugin Configurations
+""" }}}
+"""" plugin configurations
+""" {{{
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax
@@ -226,7 +241,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-a>"
 let g:UltiSnipsEditSplit="horizontal"
 
 
+""" }}}
 """" custom commands and functions
+""" {{{
 
 "" cucumbertables
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -268,3 +285,5 @@ command! CleanReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 
 " run a file through jq to make the json pretty
 command! FormatJson %!jq .
+
+""" }}}

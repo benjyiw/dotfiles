@@ -160,6 +160,8 @@ let g:vimwiki_list = [{
   \ }]
 " disable table mappings to allow for tab to work with ultisnips
 let g:vimwiki_table_mappings = 0
+" disable conceal for urls because vimbug vim/vim#260 :(
+let g:vimwiki_url_maxsave = 0
 " iterm doesn't send shift-enter, so add extra bindings as workaround
 map <Leader><cr> <Plug>VimwikiTabnewLink
 map <Leader>ws <Plug>VimwikiSplitLink

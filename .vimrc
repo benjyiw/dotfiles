@@ -49,6 +49,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 """ }}}
@@ -149,6 +153,12 @@ vmap Y "+y
 """ }}}
 """" plugin configurations
 """ {{{
+
+"" fzf
+nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader>fi       :Files<CR>
+nnoremap <leader>fl       :Lines<CR>
+nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax

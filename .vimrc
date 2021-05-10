@@ -159,6 +159,7 @@ nnoremap <leader><leader> :GFiles<CR>
 nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>fl       :Lines<CR>
 nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
+nnoremap <leader>s        :Snippets<CR>
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax

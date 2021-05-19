@@ -37,3 +37,7 @@ export VISUAL=vim
 
 # old ls colors from way back when
 LSCOLORS=exfxcxdxbxGxDxabagacad
+
+# reasonable aws pager
+export PAGER="less -FRX"
+export AWS_PAGER="less -FRX"

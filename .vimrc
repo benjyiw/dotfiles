@@ -226,6 +226,8 @@ let g:ale_fixers = {
     \ }
 let g:ale_javascript_prettier_options = '--prose-wrap=always'
 let g:ale_fix_on_save = 0
+" mappings for ale
+nnoremap <leader>af :ALEFix<CR>
 
 "" lightline configuration
 "" might want export TERM=xterm-256color

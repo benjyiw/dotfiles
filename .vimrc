@@ -53,6 +53,9 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" visual star search
+Plug 'bronson/vim-visual-star-search'
+
 call plug#end()
 
 """ }}}
@@ -160,6 +163,11 @@ nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>fl       :Lines<CR>
 nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
 nnoremap <leader>s        :Snippets<CR>
+nnoremap <leader>m        :Marks<CR>
+" testing things
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax

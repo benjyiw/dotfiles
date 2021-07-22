@@ -161,7 +161,8 @@ vmap Y "+y
 nnoremap <leader><leader> :GFiles<CR>
 nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>fl       :Lines<CR>
-nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
+nnoremap <leader>aG       :Ag <C-R><C-W><CR>
+nnoremap <leader>ag       :Ag
 nnoremap <leader>s        :Snippets<CR>
 nnoremap <leader>m        :Marks<CR>
 imap <c-x><c-k> <plug>(fzf-complete-word)

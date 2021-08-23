@@ -171,6 +171,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 "" fugitive mappings
 nnoremap <leader>g :G<CR>
+nnoremap <leader>G :tab G<CR>
 
 "" Vimwiki configuration
 " use markdown instead of .wiki syntax

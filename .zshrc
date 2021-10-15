@@ -27,6 +27,7 @@ plugins=(
   shrink-path
   zsh-syntax-highlighting
   fzf
+  pass
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -224,10 +224,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options = '--errors-only'
 " ignore E501 line too long
 let g:ale_python_flake8_options = '--ignore=E501'
-" cloudformation
-if isdirectory(expand('~/cfn-custom-rules'))
-    let g:ale_cloudformation_cfnlint_options = '-a ~/cfn-custom-rules/'
-endif
 " fixers
 let g:ale_fixers = { 
     \ 'markdown': ['prettier'],
@@ -287,25 +283,6 @@ endfunction
 
 " reload vimrc easily
 command! Reloadvimrc source ~/.vimrc
-
-function! InsertTextFile(filepath)
-    exe '0r' . a:filepath
-endfunction
-
-" start a cloudformation template
-function! Begincfnyaml(filepath)
-    call InsertTextFile(a:filepath)
-    set ft=yaml.cloudformation
-endfunction
-function! Begincfnjson(filepath)
-    call InsertTextFile(a:filepath)
-    set ft=json.cloudformation
-endfunction
-if isdirectory(expand('~/.vim/txt'))
-    command! Begincfn call Begincfnyaml("~/.vim/txt/cloudformation-begin.yaml")
-    command! Begincfnyaml call Begincfnyaml("~/.vim/txt/cloudformation-begin.yaml")
-    command! Begincfnjson call Begincfnjson("~/.vim/txt/cloudformation-begin.json")
-endif
 
 " cleanup registrers when i have too much shit in them
 command! CleanReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

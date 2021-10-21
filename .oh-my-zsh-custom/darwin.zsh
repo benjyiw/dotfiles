@@ -1,7 +1,5 @@
 if [[ ${OSTYPE} =~ ^darwin.* ]]; then
 
-  export TERM=xterm-256color
-
   # Iterm
   tab() {
     local exec_command="$@"

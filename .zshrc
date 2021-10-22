@@ -45,3 +45,7 @@ export AWS_PAGER="less -FRX"
 
 # fix colors
 export TERM=xterm-256color
+
+if [[ -d $HOME/.local/bin ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi

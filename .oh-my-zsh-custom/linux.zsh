@@ -5,5 +5,6 @@ if [[ ${OSTYPE} == linux-gnu ]]; then
   fi
 
   alias clearclip="echo -n | xclip -selection clipboard"
+  alias clip="xclip -i -selection clipboard"
 
 fi

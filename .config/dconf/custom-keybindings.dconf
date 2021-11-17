@@ -1,0 +1,14 @@
+[custom0]
+binding='<Alt>space'
+command='rofi -show run'
+name='rofi'
+
+[custom1]
+binding='<Super>space'
+command='rofi -show window'
+name='rofi window'
+
+[custom2]
+binding='<Alt><Super>p'
+command='rofi-pass'
+name='rofi-pass'

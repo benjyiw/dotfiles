@@ -2,11 +2,10 @@
 # super old thing that i created, still use it cus it's kinda nice?
 work() {
   local input="$@"
-  local today=$(date "+%Y%m%d")
-  local yesterday=$(date -v -1d "+%Y%m%d")
   local work_path="${HOME}/Documents/work"
   case "$input" in
     yesterday|y)
+      local yesterday=$(date -d "yesterday" "+%Y%m%d")
       mkdir -p "${work_path}/${yesterday}"
       cd "${work_path}/${yesterday}"
       ;;
@@ -15,6 +14,7 @@ work() {
       find "${work_path}" -maxdepth 1 -type d -empty -print -delete
       ;;
     *|today)
+      local today=$(date "+%Y%m%d")
       mkdir -p "${work_path}/${today}"
       cd "${work_path}/${today}"
       ;;

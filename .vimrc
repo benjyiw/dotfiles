@@ -228,6 +228,7 @@ let g:ale_python_flake8_options = '--ignore=E501'
 let g:ale_fixers = { 
     \ 'markdown': ['prettier'],
     \ 'json': ['prettier'],
+    \ 'yaml': ['prettier'],
     \ 'terraform': ['terraform'],
     \ 'python': ['autopep8', 'autoimport'],
     \ 'go': ['trim_whitespace', 'gofmt', 'goimports']

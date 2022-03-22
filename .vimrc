@@ -179,7 +179,8 @@ let g:vimwiki_list = [{
   \ 'path': '~/vimwiki/',
   \ 'syntax': 'markdown',
   \ 'ext': '.md',
-  \ 'auto_diary_index': 1
+  \ 'auto_diary_index': 1,
+  \ 'links_space_char': '_'
   \ }]
 " disable table mappings to allow for tab to work with ultisnips
 let g:vimwiki_table_mappings = 0

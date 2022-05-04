@@ -54,5 +54,13 @@ if [[ -d $HOME/go/bin ]]; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
+if [[ -d $HOME/.pulumi/bin ]]; then
+  export PATH="$HOME/.pulumi/bin:$PATH"
+fi
+
+if [[ -d /usr/local/go/bin ]]; then
+  export PATH="/usr/local/go/bin:$PATH"
+fi
+
 # set locale for 24 hour time
 export LC_TIME=C.UTF-8

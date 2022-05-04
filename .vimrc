@@ -96,6 +96,9 @@ highlight clear SignColumn
 """" generic configurations
 """ {{{
 
+"" set directory for centralizing swap files, to mitigate various problems
+set directory=$HOME/.vim/swapfiles//
+
 "" line numbering
 set number
 

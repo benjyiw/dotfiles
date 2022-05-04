@@ -56,6 +56,9 @@ Plug 'junegunn/fzf.vim'
 " visual star search
 Plug 'bronson/vim-visual-star-search'
 
+" yaml folding because big yaml files are a bitch
+Plug 'pedrohdz/vim-yaml-folds'
+
 call plug#end()
 
 """ }}}

@@ -59,6 +59,9 @@ Plug 'bronson/vim-visual-star-search'
 " yaml folding because big yaml files are a bitch
 Plug 'pedrohdz/vim-yaml-folds'
 
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 """ }}}

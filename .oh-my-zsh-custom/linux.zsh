@@ -7,4 +7,6 @@ if [[ ${OSTYPE} == linux-gnu ]]; then
   alias clearclip="echo -n | xclip -selection clipboard"
   alias clip="xclip -i -selection clipboard"
 
+  # prevents ctrl-s/ctrl-q from freezing the terminal
+  stty -ixon
 fi

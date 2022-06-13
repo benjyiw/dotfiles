@@ -15,6 +15,9 @@ Plug 'tpope/vim-commentary'
 " Surround normal:'ys' 'cs' 'ds', visual:'S'
 Plug 'tpope/vim-surround'
 
+" Repeat for plugins
+Plug 'tpope/vim-repeat'
+
 " Distraction free vim
 Plug 'junegunn/goyo.vim'
 
@@ -191,6 +194,8 @@ let g:vimwiki_list = [{
   \ 'auto_diary_index': 1,
   \ 'links_space_char': '_'
   \ }]
+" include extension in created links. allows markdown ease of use outside of vim
+let g:vimwiki_markdown_link_ext = 1
 " disable table mappings to allow for tab to work with ultisnips
 let g:vimwiki_table_mappings = 0
 " disable conceal for urls because vimbug vim/vim#260 :(
@@ -226,7 +231,9 @@ nmap ga <Plug>(EasyAlign)
 "" ale syntax checking/linting
 "nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" ale completion
 let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -234,6 +241,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_pylint_options = '--errors-only'
 " ignore E501 line too long
 let g:ale_python_flake8_options = '--ignore=E501'
+" linters
+let g:ale_linters = {
+    \ 'terraform': ['terraform_ls']
+    \ }
 " fixers
 let g:ale_fixers = { 
     \ 'markdown': ['prettier'],

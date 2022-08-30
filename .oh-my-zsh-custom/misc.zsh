@@ -1,6 +1,9 @@
 # easy way to reset exit code
 alias t="true"
 
+# nvim
+alias nv="nvim"
+
 # lol
 alias please='sudo'
 

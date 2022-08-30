@@ -30,7 +30,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " Easy navigation between tmux panes and vim windows
 Plug 'christoomey/vim-tmux-navigator'
@@ -63,7 +63,15 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'pedrohdz/vim-yaml-folds'
 
 " golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"" commented this out to see if it's conflicting with coc
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" auto completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" colorschemes
+Plug 'arcticicestudio/nord-vim'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -71,39 +79,35 @@ call plug#end()
 """" colors and highlighting
 """ {{{
 
-"" required for vimwiki
-set nocompatible
-filetype plugin on
-
 "" colors mmm
 syntax on
-colorscheme peachpuff
+if (has("termguicolors"))
+  set termguicolors
+endif
+" set the colorscheme silently, so that we don't get errors if the
+" colorschemes aren't installed
+silent! colorscheme nord
+"colorscheme peachpuff
 
-"" bracket highlighting
-highlight MatchParen cterm=none ctermbg=darkgray ctermfg=white
+"" transparent background, because some themes have annoying backgrounds
+"highlight Normal guibg=NONE ctermbg=NONE
 
 "" line highlighting
 set cursorline
-highlight LineNr term=underline ctermfg=1
+"highlight LineNr term=underline ctermfg=1
 highlight Cursorline cterm=NONE ctermfg=NONE term=underline
 highlight CursorLineNr term=bold cterm=bold ctermfg=3 gui=bold
-
-"" highlighted text should be visible
-highlight Visual ctermfg=7 ctermbg=black
-
-"" warnings from linters should be readable
-highlight SpellBad ctermfg=black
-
-"" less harsh colors for folds
-highlight Folded ctermbg=8 ctermfg=7
 
 "" remove color for gutter
 highlight clear SignColumn
 
-
 """ }}}
 """" generic configurations
 """ {{{
+
+"" required for vimwiki
+set nocompatible
+filetype plugin on
 
 "" set directory for centralizing swap files, to mitigate various problems
 set directory=$HOME/.vim/swapfiles//
@@ -169,8 +173,43 @@ vmap Y "+y
 """" plugin configurations
 """ {{{
 
+"" coc
+let g:coc_disable_startup_warning = 1
+" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-git',
+  \ 'coc-go',
+  \ 'coc-python',
+  \ 'coc-angular'
+  \ ]
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+
 "" fzf
-nnoremap <leader><leader> :GFiles<CR>
+"nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader><leader> :Files<CR>
 nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>fl       :Lines<CR>
 nnoremap <leader>aG       :Ag <C-R><C-W><CR>
@@ -232,7 +271,8 @@ nmap ga <Plug>(EasyAlign)
 "nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " ale completion
-let g:ale_completion_enabled = 1
+" disable completion for now while i'm trying out coc
+let g:ale_completion_enabled = 0
 set omnifunc=ale#completion#OmniFunc
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -252,7 +292,8 @@ let g:ale_fixers = {
     \ 'yaml': ['prettier'],
     \ 'terraform': ['terraform'],
     \ 'python': ['autopep8', 'autoimport'],
-    \ 'go': ['trim_whitespace', 'gofmt', 'goimports']
+    \ 'go': ['trim_whitespace', 'gofmt', 'goimports'],
+    \ 'javascript': ['prettier']
     \ }
 let g:ale_javascript_prettier_options = '--prose-wrap=always'
 let g:ale_fix_on_save = 0
@@ -284,6 +325,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-a>"
 let g:UltiSnipsEditSplit="horizontal"
+
+"" yaml folds
+" unfold by default
+au BufRead *.yml normal zR
+au BufRead *.yaml normal zR
 
 
 """ }}}

@@ -309,11 +309,6 @@ set laststatus=2
 set noshowmode
 "let g:lightline = { 'colorscheme': 'seoul256', }
 let g:lightline = { 'colorscheme': 'nord', }
-" transparent middle bar
-"let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-"let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-"let s:palette.inactive.middle = s:palette.normal.middle
-"let s:palette.tabline.middle = s:palette.normal.middle
 
 "" vim-terraform
 let g:terraform_align=1

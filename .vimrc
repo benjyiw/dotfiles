@@ -73,6 +73,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'EdenEast/nightfox.nvim'
 
+" outline
+Plug 'preservim/tagbar'
+
 call plug#end()
 
 """ }}}
@@ -304,12 +307,13 @@ nnoremap <leader>af :ALEFix<CR>
 "" might want export TERM=xterm-256color
 set laststatus=2
 set noshowmode
-let g:lightline = { 'colorscheme': 'seoul256', }
+"let g:lightline = { 'colorscheme': 'seoul256', }
+let g:lightline = { 'colorscheme': 'nord', }
 " transparent middle bar
-let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-let s:palette.inactive.middle = s:palette.normal.middle
-let s:palette.tabline.middle = s:palette.normal.middle
+"let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+"let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+"let s:palette.inactive.middle = s:palette.normal.middle
+"let s:palette.tabline.middle = s:palette.normal.middle
 
 "" vim-terraform
 let g:terraform_align=1

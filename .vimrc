@@ -63,8 +63,7 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'pedrohdz/vim-yaml-folds'
 
 " golang
-"" commented this out to see if it's conflicting with coc
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -72,6 +71,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'sainnhe/everforest'
 
 " outline
 Plug 'preservim/tagbar'
@@ -92,9 +92,6 @@ endif
 silent! colorscheme nord
 "colorscheme peachpuff
 
-"" transparent background, because some themes have annoying backgrounds
-"highlight Normal guibg=NONE ctermbg=NONE
-
 "" line highlighting
 set cursorline
 "highlight LineNr term=underline ctermfg=1
@@ -107,6 +104,9 @@ highlight clear SignColumn
 """ }}}
 """" generic configurations
 """ {{{
+
+"" leader
+let mapleader=" "
 
 "" required for vimwiki
 set nocompatible
@@ -159,6 +159,9 @@ autocmd Filetype go setlocal ts=4
 """" generic bindings
 """ {{{
 
+"" replace visual selection and keep paste register
+xnoremap <Leader>p "_dP
+
 "" bind <C-@> to toggle number, because it's annoying sometimes
 nmap <C-@> :set number! number?<CR>
 
@@ -183,7 +186,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-git',
   \ 'coc-go',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-angular'
   \ ]
 " Use K to show documentation in preview window.
@@ -313,6 +316,10 @@ let g:lightline = { 'colorscheme': 'nord', }
 "" vim-terraform
 let g:terraform_align=1
 
+"" vim-go
+"" disable shift-K go doc, because COC's is nicer
+let g:go_doc_keywordprg_enabled=0
+
 "" vim-commentary
 autocmd FileType python setlocal commentstring=#\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
@@ -347,6 +354,12 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+"" transparent background, because some themes have annoying backgrounds
+function! RemoveBackground()
+  highlight Normal guibg=NONE ctermbg=NONE
+endfunction
+command! NoBackground :call RemoveBackground()
 
 " reload vimrc easily
 command! Reloadvimrc source ~/.vimrc

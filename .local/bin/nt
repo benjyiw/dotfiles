@@ -1,0 +1,7 @@
+#!/bin/bash
+
+new_dirs=$(find . -maxdepth 1 -type d -print | fzf -m)
+for dir in ${new_dirs[@]}; do
+    dir_name=$(basename "$dir")
+    tmux new-window -c "$PWD/${dir_name}" -n "${dir_name}" "$@"
+done

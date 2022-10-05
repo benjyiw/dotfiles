@@ -76,6 +76,9 @@ Plug 'sainnhe/everforest'
 " outline
 Plug 'preservim/tagbar'
 
+" disable highlight after search
+Plug 'romainl/vim-cool'
+
 call plug#end()
 
 """ }}}

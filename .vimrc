@@ -153,11 +153,6 @@ set splitbelow
 "" virtical split always goes to the right
 set splitright
 
-"" tab preferences by filetype
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
-autocmd Filetype go setlocal ts=4
-
-
 """ }}}
 """" generic bindings
 """ {{{

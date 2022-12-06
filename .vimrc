@@ -79,6 +79,9 @@ Plug 'preservim/tagbar'
 " disable highlight after search
 Plug 'romainl/vim-cool'
 
+" sticky headers
+Plug 'wellle/context.vim'
+
 call plug#end()
 
 """ }}}

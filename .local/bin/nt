@@ -1,7 +1,28 @@
 #!/bin/bash
 
+tab_name_shorteners=(
+    "s/service/svc/"
+    "s/^chart/c/"
+    "s/^terraform/tf/"
+    "s/salesforce/sf/"
+)
+
+input="$@"
+
 new_dirs=$(find . -maxdepth 1 -type d -print | fzf -m)
 for dir in ${new_dirs[@]}; do
     dir_name=$(basename "$dir")
-    tmux new-window -c "$PWD/${dir_name}" -n "${dir_name}" "$@"
+    tab_name="${dir_name}"
+    if [[ ${#tab_name_shorteners[@]} -gt 0 ]]; then
+        tab_transform_regex=""
+        for s in ${tab_name_shorteners[@]}; do
+            tab_transform_regex="${tab_transform_regex};${s}"
+        done
+        tab_name=$(sed "${tab_transform_regex}" <<< "${tab_name}")
+    fi
+    if [[ ${input} == "" ]]; then
+        tmux new-window -c "$PWD/${dir_name}" -n "${tab_name}"
+    else
+        tmux new-window -c "$PWD/${dir_name}" -n "${tab_name}" "${input}; exec ${SHELL}"
+    fi
 done

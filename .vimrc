@@ -111,6 +111,9 @@ highlight clear SignColumn
 """" generic configurations
 """ {{{
 
+"" disable mouse bc nvim made it on by default
+set mouse=
+
 "" leader
 let mapleader=" "
 
@@ -337,6 +340,10 @@ let g:UltiSnipsEditSplit="horizontal"
 " unfold by default
 au BufRead *.yml normal zR
 au BufRead *.yaml normal zR
+
+"" context.vim
+" hide the context.vim tag
+let g:context_highlight_tag = '<hide>'
 
 
 """ }}}

@@ -92,6 +92,9 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- trying out copilot
+    use { 'github/copilot.vim' }
+
     -- trying this thing out to get autoimports working in go
     use { 'jose-elias-alvarez/null-ls.nvim' }
 

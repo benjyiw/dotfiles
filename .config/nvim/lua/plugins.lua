@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/playground' }
 
     -- file search
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { 'nvim-lua/plenary.nvim' } }
     -- navigation between tmux and vim panes
     use { 'christoomey/vim-tmux-navigator' }
     -- easy commenting 'gc'
@@ -67,6 +67,9 @@ return require('packer').startup(function(use)
     -- markdown preview
     use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
 
+    -- helm file detection, avoids lsp from detecting yaml file type and
+    -- causing diagnostic errors in helm templates
+    use { 'towolf/vim-helm' }
 
     -- lsp
     use {

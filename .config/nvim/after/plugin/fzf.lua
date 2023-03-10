@@ -3,3 +3,4 @@
 -- vim.keymap.set("n", "<leader>fl",       ":Lines<CR>",         { noremap = true })
 vim.keymap.set("n", "<leader>aG",       ":Ag <C-R><C-W><CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ag",       ":Ag ",               { noremap = true })
+vim.keymap.set("n", "<leader>gf",       ":GFiles<CR>",        { noremap = true })

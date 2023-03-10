@@ -9,7 +9,15 @@ require("nvim-tree").setup({
                 -- git = false
             }
         }
-    }
+    },
+    update_focused_file = {
+        enable = true,
+    },
+    tab = {
+        sync = {
+            open = true,
+            close = true,
+        }
+    },
 })
-
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")

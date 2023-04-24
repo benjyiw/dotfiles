@@ -6,14 +6,11 @@ lsp.preset('recommended')
 -- TODO a bunch of this is from the primeagen and i need to figure out what i actually want from all of this
 
 lsp.ensure_installed({
-    -- 'tsserver',
-    -- 'eslint',
-    'sumneko_lua',
     'gopls',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -58,6 +55,15 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+    -- disable diagnostics for helm files
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+        vim.diagnostic.disable(bufnr)
+        vim.defer_fn(function()
+            vim.diagnostic.reset(nil, bufnr)
+        end, 1000)
+    end
+
 end)
 
 lsp.setup()

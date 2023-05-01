@@ -6,6 +6,7 @@ vim.opt.mouse = ""
 -- line numbers
 vim.opt.nu = true
 vim.opt.ruler = true
+vim.opt.relativenumber = true
 
 -- line highlighting
 vim.opt.cursorline = true
@@ -33,4 +34,3 @@ vim.opt.splitright = true
 -- easy case insensitivity in commands and search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-

@@ -21,15 +21,22 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-fugitive' }
     -- automatically detect indentation
     use { 'tpope/vim-sleuth' }
+    -- find replace substitution niceness with :Subvert
+    -- and coercion (cr): snake_case (crs), MixedCase (crm), camelCase (crc),
+    -- UPPER_CASE (cru), dash-case (cr-), dot.case (cr.)
+    use { 'tpope/vim-abolish' }
     -- disable highlight after search
     use { 'romainl/vim-cool' }
     -- star search in visual mode
     use { 'bronson/vim-visual-star-search' }
+    -- easy align
+    use { 'junegunn/vim-easy-align' }
 
 
     -- TODO maybe replacing this with telescope?
     use { 'junegunn/fzf', run = function() vim.fn["fzf#install"]() end }
     use { 'junegunn/fzf.vim' }
+
 
 
     -- status bar line

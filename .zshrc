@@ -33,11 +33,18 @@ plugins=(
 # i love history
 HISTSIZE=500000
 SAVEHIST=100000
+
+# source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# use the correct editor.
-export EDITOR=vim
-export VISUAL=vim
+# set default editor, use nvim if it's installed, otherwise use vim
+if type nvim >/dev/null 2>&1; then
+  export EDITOR=nvim
+  export VISUAL=nvim
+else
+  export EDITOR=vim
+  export VISUAL=vim
+fi
 
 # old ls colors from way back when
 LSCOLORS=exfxcxdxbxGxDxabagacad

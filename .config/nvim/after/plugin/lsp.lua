@@ -71,3 +71,32 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true,
 })
+
+-- hacky workaround for omnisharp not supporting semantic tokens
+-- https://github.com/OmniSharp/omnisharp-roslyn/issues/2483#issuecomment-1534044732
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "Fix startup error by disabling semantic tokens for omnisharp",
+  group = vim.api.nvim_create_augroup("OmnisharpHook", {}),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client.name == "omnisharp" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
+vim.api.nvim_create_user_command('ListFormatters', function()
+  local clients = vim.lsp.get_active_clients({bufnr = vim.api.nvim_get_current_buf()})
+
+  local formatters = vim.tbl_filter(function(c)
+    return c.supports_method('textDocument/formatting')
+  end, clients)
+
+  formatters = vim.tbl_map(function(c) return c.name end, formatters)
+
+  if #formatters > 0 then
+    print(vim.inspect(formatters))
+  else
+    print('No formatters active in current buffer')
+  end
+end, {})

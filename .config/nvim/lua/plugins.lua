@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/playground' }
 
     -- file search
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { 'nvim-lua/plenary.nvim' } }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = { 'nvim-lua/plenary.nvim' } }
     -- navigation between tmux and vim panes
     use { 'christoomey/vim-tmux-navigator' }
     -- easy commenting 'gc'
@@ -102,6 +102,11 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- debugger
+    use { 'mfussenegger/nvim-dap' }
+    use { 'rcarriga/nvim-dap-ui' }
+    use { 'leoluz/nvim-dap-go' }
+
     -- trying out copilot
     use { 'github/copilot.vim' }
 
@@ -118,4 +123,16 @@ return require('packer').startup(function(use)
     use { 'sainnhe/everforest' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
+    -- octo, github pull request integration
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function()
+            require "octo".setup()
+        end
+    }
 end)

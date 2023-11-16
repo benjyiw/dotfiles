@@ -30,6 +30,9 @@ plugins=(
   pass
 )
 
+# i love history
+HISTSIZE=500000
+SAVEHIST=100000
 source $ZSH/oh-my-zsh.sh
 
 # use the correct editor.

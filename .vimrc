@@ -65,9 +65,6 @@ Plug 'pedrohdz/vim-yaml-folds'
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'EdenEast/nightfox.nvim'
@@ -182,40 +179,6 @@ vmap Y "+y
 """ }}}
 """" plugin configurations
 """ {{{
-
-"" coc
-let g:coc_disable_startup_warning = 1
-" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
-let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-git',
-  \ 'coc-go',
-  \ 'coc-pyright',
-  \ 'coc-angular'
-  \ ]
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
 
 "" fzf
 "nnoremap <leader><leader> :GFiles<CR>

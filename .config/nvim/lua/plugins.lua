@@ -127,17 +127,4 @@ return require('packer').startup(function(use)
     use { 'EdenEast/nightfox.nvim' }
     use { 'sainnhe/everforest' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
-
-    -- octo, github pull request integration
-    use {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            'kyazdani42/nvim-web-devicons',
-        },
-        config = function()
-            require "octo".setup()
-        end
-    }
 end)

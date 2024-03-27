@@ -32,6 +32,13 @@ return require('packer').startup(function(use)
     -- easy align
     use { 'junegunn/vim-easy-align' }
 
+    -- dadbod, database client
+    use { 'tpope/vim-dadbod' }
+    use { 'kristijanhusak/vim-dadbod-ui' }
+    use { 'kristijanhusak/vim-dadbod-completion' }
+
+    -- some simple yaml tools for path
+    use { 'cuducos/yaml.nvim' }
 
     -- TODO maybe replacing this with telescope?
     use { 'junegunn/fzf', run = function() vim.fn["fzf#install"]() end }

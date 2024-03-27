@@ -34,3 +34,10 @@ vim.opt.splitright = true
 -- easy case insensitivity in commands and search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- trying out things from kickstart
+vim.g.have_nerd_font = true
+
+-- white space characters
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }

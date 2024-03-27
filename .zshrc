@@ -74,3 +74,6 @@ fi
 
 # set locale for 24 hour time
 export LC_TIME=C.UTF-8
+
+# i am weak
+alias vim=nvim

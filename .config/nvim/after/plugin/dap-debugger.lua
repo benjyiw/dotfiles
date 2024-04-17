@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>do", "<cmd>lua require('dap').step_out()<CR>")
 vim.keymap.set("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>b", "<cmd>lua require('dap').toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>dr", "<cmd>lua require('dap').repl.open()<CR>")
+vim.keymap.set("n", "<leader>dk", "<cmd>lua require('dap').close()<CR>")
 
 -- debug go test
 vim.keymap.set("n", "<leader>dt", "<cmd>lua require('dap-go').debug_test()<CR>")

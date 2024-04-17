@@ -77,3 +77,6 @@ export LC_TIME=C.UTF-8
 
 # i am weak
 alias vim=nvim
+
+# correct date format for things like ls
+export TIME_STYLE=long-iso
